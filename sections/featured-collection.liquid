@@ -78,7 +78,7 @@
         aria-label="{{ 'general.slider.name' | t }}"
       >
         {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
-          {% if product.title != 'Soft Winter Jacketdd' %}
+          {% if product.title != 'Soft Winter Jacket' %}
             <li
               id="Slide-{{ section.id }}-{{ forloop.index }}"
               class="grid_item{% if show_mobile_slider or show_desktop_slider %} slider_slide{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -87,12 +87,7 @@
                 style="--animation-order: {{ forloop.index }};"
               {% endif %}
             >
-             {%- for variant in product.variants -%}
-                    <p>Variant ID: {{ variant.id }}</p>
-                    {% if variant.option1 != blank %}
-                <p>Size: {{ variant.option1 }}</p>
-              {%endif %}
-              {%- endfor -%}
+             
               {% render 'card-product',
                 card_product: product,
                 media_aspect_ratio: section.settings.image_ratio,

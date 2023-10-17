@@ -218,17 +218,17 @@ class CartItems extends HTMLElement {
     var jacketPresent = false;
     var handbagpresent = false;
     for (var i = 0; i < items.length; ++i) {
-      if (items[i].variant_id == 896598118855896) {
+      if (items[i].variant_id == 44203982160107) {
         jacketPresent = true;
       }
-      if (items[i].variant_id == 786598118855896) {
+      if (items[i].variant_id == 44213502443755) {
         handbagpresent = true;
       }
     }
   
     if (jacketPresent == true && handbagpresent == false) {
       var jacketLine = document.querySelector(
-        '[data-quantity-variant-id="859798118855896"]'
+        '[data-quantity-variant-id="44203982160107"]'
       );
       this.updateQuantity(jacketLine.dataset.index, 0);
       }

@@ -57,12 +57,12 @@ if (!customElements.get('product-form')) {
               cart = await cart.json();
               var add_free_product = true;
               for(var i =0;i<cart.items.length;++i){
-                if(cart.items[i].variant_id == 98681985888357){
+                if(cart.items[i].variant_id == 44203982160107){
                   add_free_product = false;
                 }
               }
               var addData = {
-                'id':98681985888357,
+                'id':44203982160107,
                 'quantity': 1
               };
               if(add_free_product){
