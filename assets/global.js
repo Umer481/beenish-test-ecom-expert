@@ -976,6 +976,18 @@ class VariantSelects extends HTMLElement {
       this.renderProductInfo();
       this.updateShareUrl();
     }
+    // Changes for test-store
+    var selectedSize = this.querySelector(".my_custom_select");
+    var atc_btn = document.querySelector(".product-form__buttons");
+    var btn_form = document.querySelector(".custom-buttons-form");
+    if (selectedSize.value == "Unselected") {
+      atc_btn.classList.add("disabled-button");
+      btn_form.classList.add("disabled-form");
+    } else {
+      atc_btn.classList.remove("disabled-button");
+      btn_form.classList.remove("disabled-form");
+    }
+
   }
 
   updateOptions() {
