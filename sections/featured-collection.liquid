@@ -87,6 +87,12 @@
                 style="--animation-order: {{ forloop.index }};"
               {% endif %}
             >
+             {%- for variant in product.variants -%}
+                    <p>Variant ID: {{ variant.id }}</p>
+                    {% if variant.option1 != blank %}
+                <p>Size: {{ variant.option1 }}</p>
+              {%endif %}
+              {%- endfor -%}
               {% render 'card-product',
                 card_product: product,
                 media_aspect_ratio: section.settings.image_ratio,
