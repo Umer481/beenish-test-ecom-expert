@@ -66,7 +66,7 @@ if (!customElements.get('product-form')) {
                 'quantity': 1
               };
               if(add_free_product){
-                add_bundle_product(addData);
+                submit_bundle_product(addData);
               }
             }
 
