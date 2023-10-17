@@ -695,11 +695,12 @@
   document.addEventListener("DOMContentLoaded", () => {
    
     var varient_select_default = document.querySelector(".my_custom_select");
-    if(localStorage.)
     
     var option = document.querySelector([value="${varient_select_default.value}"]);
+
     var atc_btn = document.querySelector('.product-form__buttons');
     var btn_form = document.querySelector('.custom-buttons-form');
+
     if(varient_select_default.value == "Unselected"){
       option.click();
       atc_btn.classList.add("disabled-button");
@@ -711,8 +712,10 @@
   
   varient_select.addEventListener("change", function() {
     var selectedOption = document.querySelector(`[value="${this.value}"]`);
+   
     selectedOption.click();
   });
+
 </script>
 {% schema %}
 {
