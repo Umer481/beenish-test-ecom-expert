@@ -114,7 +114,7 @@ class CartItems extends HTMLElement {
     });
 
     fetch(`${routes.cart_change_url}`, { ...fetchConfig(), ...{ body } })
-      .then((response) => {
+      .then(async(response) => {
         return response.text();
       })
       .then((state) => {
@@ -166,8 +166,9 @@ class CartItems extends HTMLElement {
         } else if (document.querySelector('.cart-item') && cartDrawerWrapper) {
           trapFocus(cartDrawerWrapper, document.querySelector('.cart-item__name'));
         }
-
+        
         publish(PUB_SUB_EVENTS.cartUpdate, { source: 'cart-items', cartData: parsedState, variantId: variantId });
+        this.fix_products_bundled(parsedState);
       })
       .catch(() => {
         this.querySelectorAll('.loading-overlay').forEach((overlay) => overlay.classList.add('hidden'));
@@ -212,6 +213,28 @@ class CartItems extends HTMLElement {
     this.lineItemStatusElement.setAttribute('aria-hidden', false);
   }
 
+  fix_products_bundled(parsedState) {
+    var items = parsedState.items;
+    var jacketPresent = false;
+    var handbagpresent = false;
+    for (var i = 0; i < items.length; ++i) {
+      if (items[i].variant_id == 896598118855896) {
+        jacketPresent = true;
+      }
+      if (items[i].variant_id == 786598118855896) {
+        handbagpresent = true;
+      }
+    }
+  
+    if (jacketPresent == true && handbagpresent == false) {
+      var jacketLine = document.querySelector(
+        '[data-quantity-variant-id="859798118855896"]'
+      );
+      this.updateQuantity(jacketLine.dataset.index, 0);
+      }
+    }
+
+
   disableLoading(line) {
     const mainCartItems = document.getElementById('main-cart-items') || document.getElementById('CartDrawer-CartItems');
     mainCartItems.classList.remove('cart__items--disabled');
@@ -244,3 +267,4 @@ if (!customElements.get('cart-note')) {
     }
   );
 }
+
