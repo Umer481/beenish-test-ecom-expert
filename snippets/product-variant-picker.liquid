@@ -71,6 +71,7 @@
               class="select__select"
               name="options[{{ option.name | escape }}]"
               form="{{ product_form_id }}"
+
             >
               {% render 'product-variant-options', product: product, option: option, block: block %}
             </select>
@@ -97,6 +98,7 @@
         id="Variants-{{ section.id }}"
         class="select__select"
         form="{{ product_form_id }}"
+         autocomplete="off"
       >
         {%- for variant in product.variants -%}
           <option
