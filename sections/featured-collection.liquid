@@ -78,7 +78,7 @@
         aria-label="{{ 'general.slider.name' | t }}"
       >
         {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
-          {% if product.title != 'Soft Winter Jacket' %}
+        
             <li
               id="Slide-{{ section.id }}-{{ forloop.index }}"
               class="grid_item{% if show_mobile_slider or show_desktop_slider %} slider_slide{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -99,7 +99,7 @@
                 section_id: section.id
               %}
             </li>
-          {% endif %}
+         
         {%- endfor -%}
       </ul>
       
