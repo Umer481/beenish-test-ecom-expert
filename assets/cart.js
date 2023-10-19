@@ -279,6 +279,7 @@ class CartItems extends HTMLElement {
   }
 
   fix_products_bundled(parsedState) {
+    debugger;
     var items = parsedState.items;
     var jacketPresent = false;
     var handbagpresent = false;
