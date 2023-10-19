@@ -156,7 +156,7 @@
             >
               {%- for product in collection.products -%}
           
-                {% unless product.tags contains 'hidden' %}
+                {% unless product.tags contains 'idden' %}
                   {% assign lazy_load = false %}
                   {%- if forloop.index > 2 -%}
                     {%- assign lazy_load = true -%}
