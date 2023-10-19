@@ -155,6 +155,9 @@
               "
             >
               {%- for product in collection.products -%}
+                <script>
+                  console.log(product.tags);
+                </script>
                 {% unless product.tags contains 'hidden' %}
                   {% assign lazy_load = false %}
                   {%- if forloop.index > 2 -%}
