@@ -692,31 +692,53 @@
   </script>
 </section>
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-   debugger;
-    var varient_select_default = document.querySelector(".my_custom_select");
-    
-    var option = document.querySelector(`[value="${varient_select_default.value}"]`);
+document.addEventListener("DOMContentLoaded", () => {
+  // Select the dropdown and get the currently selected option
+  var variantSelect = document.querySelector(".my_custom_select");
+  var selectedOption = variantSelect.options[variantSelect.selectedIndex];
 
-    var atc_btn = document.querySelector('.product-form__buttons');
-    var btn_form = document.querySelector('.custom-buttons-form');
-
-    if(varient_select_default.value == "Unselected"){
-      option.click();
-      atc_btn.classList.add("disabled-button");
-      btn_form.classList.add("disabled-form");
+  if (selectedOption.value !== "Unselected") {
+    // If the selected option is not "Unselected," change it to "Unselected"
+    for (var i = 0; i < variantSelect.options.length; i++) {
+      if (variantSelect.options[i].value === "Unselected") {
+        variantSelect.selectedIndex = i;
+        break;
+      }
     }
     
-  });
-  var varient_select = document.querySelector(".my_custom_select");
-  
-  varient_select.addEventListener("change", function() {
-    var selectedOption = document.querySelector(`[value="${this.value}"]`);
-   
-    selectedOption.click();
-  });
+    // Add or remove CSS classes based on the selected option
+    var atcBtn = document.querySelector('.product-form__buttons');
+    var btnForm = document.querySelector('.custom-buttons-form');
+    
+    if (variantSelect.value === "Unselected") {
+      atcBtn.classList.remove("disabled-button");
+      btnForm.classList.remove("disabled-form");
+    } else {
+      atcBtn.classList.add("disabled-button");
+      btnForm.classList.add("disabled-form");
+    }
+  }
+});
 
+// Add an event listener to handle changes in the dropdown
+var variantSelect = document.querySelector(".my_custom_select");
+variantSelect.addEventListener("change", function() {
+  var selectedOption = variantSelect.options[variantSelect.selectedIndex];
+  
+  // Add or remove CSS classes based on the selected option
+  var atcBtn = document.querySelector('.product-form__buttons');
+  var btnForm = document.querySelector('.custom-buttons-form');
+  
+  if (selectedOption.value === "Unselected") {
+    atcBtn.classList.remove("disabled-button");
+    btnForm.classList.remove("disabled-form");
+  } else {
+    atcBtn.classList.add("disabled-button");
+    btnForm.classList.add("disabled-form");
+  }
+});
 </script>
+
 {% schema %}
 {
   "name": "t:sections.main-product.name",
