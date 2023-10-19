@@ -155,9 +155,9 @@
               "
             >
               {%- for product in collection.products -%}
-                <script>
-                  console.log("Product Tags: ",product.tags);
-                </script>
+               <script>
+  console.log("Product Object: ", {{ product | json }});
+</script>
                 {% unless product.tags contains 'hidden' %}
                   {% assign lazy_load = false %}
                   {%- if forloop.index > 2 -%}
