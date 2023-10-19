@@ -156,7 +156,7 @@
             >
               {%- for product in collection.products -%}
                 <script>
-                  console.log(product.tags);
+                  console.log("Product Tags: ",product.tags);
                 </script>
                 {% unless product.tags contains 'hidden' %}
                   {% assign lazy_load = false %}
