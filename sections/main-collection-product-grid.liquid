@@ -168,7 +168,7 @@
                       style="--animation-order: {{ forloop.index }};"
                     {% endif %}
                   >
-                    <p>{{ product.tags }}</p>
+                    <p>Tags: {{ product.tags }}</p>
                     {% render 'card-product',
                       card_product: product,
                       media_aspect_ratio: section.settings.image_ratio,
