@@ -273,7 +273,20 @@
       if (Shopify.designMode) {
         document.documentElement.classList.add('shopify-design-mode');
       }
+      function printHomepageScripts() {
+  const scripts = document.scripts;
+
+  for (let i = 0; i < scripts.length; i++) {
+    const script = scripts[i];
+    const scriptSrc = script.src;
+    console.log(`Script URL: ${scriptSrc}`);
+  }
+}
+
+// Call the function to print the scripts when the page has loaded
+window.addEventListener('load', printHomepageScripts);
     </script>
+  
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
