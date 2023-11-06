@@ -273,18 +273,24 @@
       if (Shopify.designMode) {
         document.documentElement.classList.add('shopify-design-mode');
       }
-      function printHomepageScripts() {
+     function printHomepageScripts() {
   const scripts = document.scripts;
+  const homepageUrlPart = '/'; // Adjust this to match the homepage URL
 
   for (let i = 0; i < scripts.length; i++) {
     const script = scripts[i];
     const scriptSrc = script.src;
-    console.log(`Script URL: ${scriptSrc}`);
+
+    // Check if the script URL contains the homepage URL part
+    if (scriptSrc.includes(homepageUrlPart)) {
+      console.log(`Script URL on Homepage: ${scriptSrc}`);
+    }
   }
 }
 
-// Call the function to print the scripts when the page has loaded
+// Call the function to print the homepage scripts when the page has loaded
 window.addEventListener('load', printHomepageScripts);
+
     </script>
   
   </head>
